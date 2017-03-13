@@ -13,12 +13,13 @@ var options = {
 
 var client = mqtt.connect(options)
 console.log('start')
-// client.subscribe('messages')
+client.subscribe('$creq')
 // client.publish('messages', 'Current time is: ' + new Date())
 client.on('message', function (topic, message) {
   console.log(topic)
-  console.log(message)
+  console.log(message.toString())
 })
+
 
 client.on('connect', function () {
   console.log('Connected')
